@@ -1,6 +1,5 @@
 import time
 import board
-import digitalio
 import usb_hid
 import asyncio
 import keypad
@@ -40,15 +39,15 @@ btnAux2 = ArcadeInput(board.GP17, keyboard, Keycode.I)
 btnAux3 = ArcadeInput(board.GP18, keyboard, Keycode.O)
 btnAux4 = ArcadeInput(board.GP19, keyboard, Keycode.P)
 
-btnA1 = ArcadeInput(board.GP20, keyboard, Keycode.Q)
-btnB1 = ArcadeInput(board.GP21, keyboard, Keycode.E)
-btnC1 = ArcadeInput(board.GP22, keyboard, Keycode.R)
-btnD1 = ArcadeInput(board.GP28, keyboard, Keycode.F)
+btnX = ArcadeInput(board.GP20, keyboard, Keycode.KEYPAD_SEVEN)
+btnY = ArcadeInput(board.GP21, keyboard, Keycode.KEYPAD_EIGHT)
+btnRB = ArcadeInput(board.GP22, keyboard, Keycode.KEYPAD_NINE)
+btnLB = ArcadeInput(board.GP28, keyboard, Keycode.KEYPAD_ONE)
 
-btnA2 = ArcadeInput(board.GP11, keyboard, Keycode.Z)
-btnB2 = ArcadeInput(board.GP10, keyboard, Keycode.X)
-btnC2 = ArcadeInput(board.GP9, keyboard, Keycode.C)
-btnD2 = ArcadeInput(board.GP8, keyboard, Keycode.V)
+btnA = ArcadeInput(board.GP11, keyboard, Keycode.KEYPAD_FOUR)
+btnB = ArcadeInput(board.GP10, keyboard, Keycode.KEYPAD_FIVE)
+btnRT = ArcadeInput(board.GP9, keyboard, Keycode.KEYPAD_SIX)
+btnLT = ArcadeInput(board.GP8, keyboard, Keycode.KEYPAD_TWO)
 
 async def main():
     await asyncio.gather(
@@ -60,14 +59,14 @@ async def main():
         btnAux2.createTask(),
         btnAux3.createTask(),
         btnAux4.createTask(),
-        btnA1.createTask(),
-        btnB1.createTask(),
-        btnC1.createTask(),
-        btnD1.createTask(),
-        btnA2.createTask(),
-        btnB2.createTask(),
-        btnC2.createTask(),
-        btnD2.createTask()
+        btnX.createTask(),
+        btnY.createTask(),
+        btnRB.createTask(),
+        btnLB.createTask(),
+        btnA.createTask(),
+        btnB.createTask(),
+        btnRT.createTask(),
+        btnLT.createTask()
     )
     
 asyncio.run(main())
